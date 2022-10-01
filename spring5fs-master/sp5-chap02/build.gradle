@@ -1,0 +1,17 @@
+apply plugin: 'java'//그레이들 java 플러그인 적용
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8// 소스와 컴파일 결과를 1.8버전에 맞춘다.
+compileJava.options.encoding = "UTF-8"// 소스코드 인코팅 타입결정
+
+repositories {// 의존 모듈을 메이븐 중앙 레포지토리에서 다운로드
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:5.0.2.RELEASE'//spring-context 모듈에 대한 의존을 설정한다.
+}
+
+task wrapper(type: Wrapper) {// 그레이들 래퍼설정. 소스를 공유할 때 그레이들 설치 없이 그레이들 명령어를 실행할 수 있는 래퍼 생성
+    gradleVersion = '4.4'
+}
