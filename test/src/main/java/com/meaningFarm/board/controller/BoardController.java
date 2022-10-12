@@ -1,13 +1,16 @@
-package com.meaningFarm.board.controller;
+ package com.meaningFarm.board.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.meaningFarm.board.vo.BoardVO;
+import com.meaningFarm.taek.Service;
 import com.webjjang.util.PageObject;
 
 // 자동생성 - @Controller, @Service, @Repository, @Compnent, @RestController, @Advice
@@ -17,11 +20,23 @@ import com.webjjang.util.PageObject;
 public class BoardController {
 
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
+	
+	private Service boardListService;
+	
+	// DI 적용 - Autowired, @Inject
+	@Autowired
+	public void setBoardListService(Service boardListService) {// 서비스로 보낸다.
+		this.boardListService = boardListService;
+		
+	}
 
 	// 게시판 리스트
 	@GetMapping("/list.do")
-	public String list(PageObject pageObject) throws Exception {
+	public String list(PageObject pageObject, Model model) throws Exception {
 		log.info("게시판 리스트 처리");
+		
+		model.addAttribute("list", boardListService.service(pageObject));
+		model.addAttribute("pageObject", pageObject);
 		return "board/list";
 	}
 

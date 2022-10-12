@@ -44,6 +44,7 @@ public class BoardVO {
 		public void setHit(long hit) {
 			this.hit = hit;
 		}
+		
 		@Override
 		public String toString() {
 			return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer

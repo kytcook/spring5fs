@@ -7,7 +7,7 @@
 <title>일반게시판 > 리스트</title>
 </head>
 <body>
-<h2>일반게시판 > 리스트</h2>
+<h2>게시판 리스트</h2>
 <table>
 	<tr>
 		<th>번호</th>
@@ -17,7 +17,7 @@
 		<th>조회수</th>
 		<th>번호</th>
 	</tr>
-	<tr onclick="location='view.do?no=10'">
+	<tr onclick="location='view.do?no=10&inc=1'" class="dataRow">
 		<td>10</td>
 		<td>Spring Spring</td>
 		<td>관리자</td>
