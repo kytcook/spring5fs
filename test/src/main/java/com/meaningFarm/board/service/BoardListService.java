@@ -13,7 +13,7 @@ import com.webjjang.util.PageObject;
 @org.springframework.stereotype.Service
 public class BoardListService implements Service{
 	private static final Logger log = LoggerFactory.getLogger(BoardListService.class);
-
+	
 	private BoardMapper mapper;
 	
 	@Inject
@@ -21,6 +21,7 @@ public class BoardListService implements Service{
 		this.mapper = mapper;
 	}
 
+	
 	@Override
 	public Object service(Object obj) throws Exception {
 		PageObject pageObject = (PageObject) obj;
